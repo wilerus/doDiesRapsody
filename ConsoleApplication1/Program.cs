@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,55 @@ namespace ConsoleApplication1
 
     class figureList : ICollection<TwoDemensionsFigure>
     {
+        protected ArrayList innerArray;
 
+        public bool IsReadOnly
+        {
+            get
+            {
+                return innerArray.IsReadOnly;
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return innerArray.Count;
+            }
+        }
+
+        public void Add(TwoDemensionsFigure newFigure)
+        {
+            innerArray.Add(newFigure);
+        }
+
+        public void CopyTo(TwoDemensionsFigure[] newFigures, int index)
+        {
+            innerArray.CopyTo(newFigures, index);
+        }
+
+        public bool Remove(TwoDemensionsFigure newFigure)
+        {
+            try
+            {
+                innerArray.Remove(newFigure);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Containts(TwoDemensionsFigure newFigure)
+        {
+           return innerArray.Contains(newFigure);
+        }
+
+        public void Clear()
+        {
+            innerArray.Clear();
+        }
     }
 
     class Program
