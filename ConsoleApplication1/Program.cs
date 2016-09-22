@@ -9,6 +9,10 @@ namespace ConsoleApplication1
 {
     abstract class TwoDemensionsFigure
     {
+        public virtual float[] sidesList { get; set; }
+
+        public virtual short[] anglesList { get; set; }
+
         public virtual float mathArea(float firstDim, float secondDim)
         {
             Contract.Requires(!firstDim.Equals(null));
@@ -22,6 +26,10 @@ namespace ConsoleApplication1
 
     class Square : TwoDemensionsFigure
     {
+        public override float[] sidesList { get; set; }
+
+        public override short[] anglesList { get; set; }
+
         public override float mathArea(float firstDim, float secondDim)
         {
             Contract.Requires(!firstDim.Equals(null));
@@ -35,6 +43,10 @@ namespace ConsoleApplication1
 
     class Triangle : TwoDemensionsFigure
     {
+        public override float[] sidesList { get; set; }
+
+        public override short[] anglesList { get; set; }
+
         public override float mathArea(float firstDim, float secondDim)
         {
             Contract.Requires(!firstDim.Equals(null));
@@ -44,6 +56,11 @@ namespace ConsoleApplication1
         {
             return firstDim + secondDim + thirdDim + foughtDim;
         }
+    }
+
+    class figureList : ICollection<TwoDemensionsFigure>
+    {
+
     }
 
     class Program
